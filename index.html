@@ -12,7 +12,11 @@
 </head>
 <body>
 	<div id="app">
-		<i class="btn btn-primary p-3 fa fa-sync" @click="changeWall"></i>
+		<div class="d-flex justify-content-between">
+			<i class="btn btn-primary p-3 fa fa-sync" @click="changeWall"></i>
+			<i class="btn btn-primary p-3 fa fa-image" onclick="selectImage.click()"></i>
+			<input id="selectImage" type="file" class="d-none" v-on:change="selectImage">
+		</div>
 		<div>
 			<h2 class="mt-5 mb-5 text-white text-center">Todo List</h2>
 		</div>
@@ -36,7 +40,6 @@
 			</div>
 		</div>
 	</div>
-</div>
-<script src="script.js"></script>
+	<script src="script.js"></script>
 </body>
 </html>
