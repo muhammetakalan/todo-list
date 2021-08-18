@@ -25,12 +25,6 @@ new Vue({
       if (localStorage.getItem('wall')) {
         document.body.style.backgroundImage = "url(" + localStorage.getItem("wall") + ")"
       }
-      firebase.initializeApp({databaseURL: "https://akalan-db.firebaseio.com"});
-      for(i = 0; i < this.todoList.length; i++) {
-        firebase.database().ref("todo-list/" + this.todoList[i].timeStamp).set({
-          title: this.todoList[i].title
-        });
-      }
     },
     changeWall() {
       var wallLink = "https://picsum.photos/id/" + Math.floor(Math.random() * 600) + "/1920/1080"
@@ -51,11 +45,9 @@ new Vue({
     },
     addItem() {
       if (this.new_todo) {
-        var date = new Date();
         this.todoList.push({
           title: this.new_todo,
           done: false,
-          timeStamp: date.getFullYear() + ":" + date.getMonth() + ":" + date.getDate() + "---" + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds()
         });
       }
       this.new_todo = ''
